@@ -12,3 +12,6 @@ E:\Project\Book-E-Shop\BookShop.Repositories\obj\Debug\net6.0\refint\BookShop.Re
 E:\Project\Book-E-Shop\BookShop.Repositories\obj\Debug\net6.0\BookShop.Repositories.pdb
 E:\Project\Book-E-Shop\BookShop.Repositories\obj\Debug\net6.0\BookShop.Repositories.genruntimeconfig.cache
 E:\Project\Book-E-Shop\BookShop.Repositories\obj\Debug\net6.0\ref\BookShop.Repositories.dll
+E:\Project\Book-E-Shop\BookShop.Repositories\bin\Debug\net6.0\BookShop.Models.dll
+E:\Project\Book-E-Shop\BookShop.Repositories\bin\Debug\net6.0\BookShop.Models.pdb
+E:\Project\Book-E-Shop\BookShop.Repositories\obj\Debug\net6.0\BookShop.Repositories.csproj.CopyComplete
