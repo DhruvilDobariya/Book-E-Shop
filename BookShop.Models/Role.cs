@@ -1,7 +1,9 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations;
 
 namespace BookShop.Models
 {
+    [Index(nameof(Name), IsUnique = true)]
     public partial class Role
     {
         public Role()

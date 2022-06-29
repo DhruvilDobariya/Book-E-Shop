@@ -1,7 +1,7 @@
 ﻿using BookShop.Models;
 using BookShop.Models.ViewModels;
+using BookShop.Repositories;
 using Microsoft.AspNetCore.Mvc;
-using ParsonApi.Repositories;
 
 namespace BookShop.Controllers
 {
@@ -10,21 +10,28 @@ namespace BookShop.Controllers
     public class UserController : Controller
     {
         private readonly ICRUDRepository<User> _crudRepository;
-        public UserController(ICRUDRepository<User> crudRepository)
+        private readonly IUserRepository _userRepository;
+        public UserController(ICRUDRepository<User> crudRepository, IUserRepository userRepository)
         {
             _crudRepository = crudRepository;
+            _userRepository = userRepository;
         }
 
         [HttpGet]
         [Route("list")]
-        public async Task<ActionResult<User>> GetUsers(int page)
+        public ActionResult<Responce<User>> GetUsers(int page)
         {
-            return Ok(await _crudRepository.GetEntitiesAsync(page));
+            Responce<User> responce = _userRepository.GetUsersWithJoin(page);
+            if (responce == null)
+            {
+                return BadRequest(_userRepository.Message);
+            }
+            return Ok(responce);
         }
 
         [HttpGet]
         [Route("list/{id}")]
-        public async Task<ActionResult<Responce<User>>> GetUser(int id)
+        public async Task<ActionResult<User>> GetUser(int id)
         {
             return Ok(await _crudRepository.GetEntityByIdAsync(id));
         }
@@ -32,7 +39,7 @@ namespace BookShop.Controllers
         [HttpPost]
         public async Task<ActionResult<User>> AddUser(User user)
         {
-            if(!ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 return BadRequest(Json(ModelState));
             }
@@ -61,15 +68,27 @@ namespace BookShop.Controllers
         [Route("{id}")]
         public async Task<ActionResult> DeleteUser(int id)
         {
-            if(id <= 0)
+            if (id <= 0)
             {
                 return BadRequest(Json("Invalid Id"));
             }
-            if(await _crudRepository.DeleteEntityAsync(id))
+            if (await _crudRepository.DeleteEntityAsync(id))
             {
                 return Ok("User deleted successfully");
             }
             return BadRequest(_crudRepository.Message);
+        }
+
+        [HttpGet]
+        [Route("Login")]
+        public ActionResult<User> LoginUser(string eamil, string password)
+        {
+            User user = _userRepository.Validate(eamil, password);
+            if (user == null)
+            {
+                return NotFound(_userRepository.Message);
+            }
+            return user;
         }
     }
 }

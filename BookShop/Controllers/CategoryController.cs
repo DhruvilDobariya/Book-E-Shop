@@ -7,59 +7,59 @@ namespace BookShop.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class RoleController : Controller
+    public class CategoryController : Controller
     {
-        private readonly ICRUDRepository<Role> _crudRepository;
-        public RoleController(ICRUDRepository<Role> crudRepository)
+        private readonly ICRUDRepository<Category> _crudRepository;
+        public CategoryController(ICRUDRepository<Category> crudRepository)
         {
             _crudRepository = crudRepository;
         }
 
         [HttpGet]
         [Route("list")]
-        public async Task<ActionResult<Responce<Role>>> GetRoles(int page)
+        public async Task<ActionResult<Responce<Category>>> GetCategories(int page)
         {
             return Ok(await _crudRepository.GetEntitiesAsync(page));
         }
 
         [HttpGet]
         [Route("list/{id}")]
-        public async Task<ActionResult<Role>> GetRole(int id)
+        public async Task<ActionResult<Category>> GetCategory(int id)
         {
             return Ok(await _crudRepository.GetEntityByIdAsync(id));
         }
 
         [HttpPost]
-        public async Task<ActionResult<Role>> AddRole(Role role)
+        public async Task<ActionResult<Category>> AddCategory(Category category)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(Json(ModelState));
             }
-            if (await _crudRepository.AddEntityAsync(role))
+            if (await _crudRepository.AddEntityAsync(category))
             {
-                return Ok(role);
+                return Ok(category);
             }
             return BadRequest(_crudRepository.Message);
         }
 
         [HttpPut]
-        public async Task<ActionResult<Role>> UpdateRole(Role role)
+        public async Task<ActionResult<Category>> UpdateCategory(Category category)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(Json(ModelState));
             }
-            if (await _crudRepository.UpdateEntityAsync(role))
+            if (await _crudRepository.UpdateEntityAsync(category))
             {
-                return Ok(role);
+                return Ok(category);
             }
             return BadRequest(_crudRepository.Message);
         }
 
         [HttpDelete]
         [Route("{id}")]
-        public async Task<ActionResult> DeleteRole(int id)
+        public async Task<ActionResult> DeleteCategory(int id)
         {
             if (id <= 0)
             {
@@ -67,7 +67,7 @@ namespace BookShop.Controllers
             }
             if (await _crudRepository.DeleteEntityAsync(id))
             {
-                return Ok("Role deleted successfully");
+                return Ok("category deleted successfully");
             }
             return BadRequest(_crudRepository.Message);
         }

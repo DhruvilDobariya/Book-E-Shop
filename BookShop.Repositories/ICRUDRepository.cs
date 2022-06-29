@@ -1,6 +1,6 @@
 ﻿using BookShop.Models.ViewModels;
 
-namespace ParsonApi.Repositories
+namespace BookShop.Repositories
 {
     public interface ICRUDRepository<T> where T : class
     {

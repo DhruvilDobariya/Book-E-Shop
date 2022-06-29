@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "/QJNPYw5W6kJIDyxTTPo9q0SfVpN0i5AHcTkOGBenbdu39K+y9/B6snFQyOEvbx11Uu8weOgrSPySYCBUAUQDQ==",
+  "dgSpecHash": "7cyoVF2sHMS6UC5a22A67B4a8w0jKQwlxk8dX6gU4DHRxWkAkJBaMVxsu0r6FctsT9a4UMwW0FNC+eC86w2c6Q==",
   "success": true,
   "projectFilePath": "E:\\Project\\Book-E-Shop\\BookShop.Repositories\\BookShop.Repositories.csproj",
   "expectedPackageFiles": [
@@ -33,6 +33,8 @@
     "C:\\Users\\DELL\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "C:\\Users\\DELL\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
     "C:\\Users\\DELL\\.nuget\\packages\\microsoft.win32.systemevents\\4.7.0\\microsoft.win32.systemevents.4.7.0.nupkg.sha512",
+    "C:\\Users\\DELL\\.nuget\\packages\\npgsql\\6.0.5\\npgsql.6.0.5.nupkg.sha512",
+    "C:\\Users\\DELL\\.nuget\\packages\\npgsql.entityframeworkcore.postgresql\\6.0.5\\npgsql.entityframeworkcore.postgresql.6.0.5.nupkg.sha512",
     "C:\\Users\\DELL\\.nuget\\packages\\system.collections.immutable\\6.0.0\\system.collections.immutable.6.0.0.nupkg.sha512",
     "C:\\Users\\DELL\\.nuget\\packages\\system.configuration.configurationmanager\\4.7.0\\system.configuration.configurationmanager.4.7.0.nupkg.sha512",
     "C:\\Users\\DELL\\.nuget\\packages\\system.diagnostics.diagnosticsource\\6.0.0\\system.diagnostics.diagnosticsource.6.0.0.nupkg.sha512",

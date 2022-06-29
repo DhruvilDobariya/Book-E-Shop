@@ -2,7 +2,7 @@
 using BookShop.Models.ViewModels;
 using Microsoft.EntityFrameworkCore;
 
-namespace ParsonApi.Repositories.Services
+namespace BookShop.Repositories.Services
 {
     public class CRUDRepository<T> : ICRUDRepository<T> where T : class
     {
