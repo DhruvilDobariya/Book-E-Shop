@@ -7,59 +7,59 @@ namespace BookShop.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class PublisherController : Controller
+    public class BookController : Controller
     {
-        private readonly ICRUDRepository<Publisher> _crudRepository;
-        public PublisherController(ICRUDRepository<Publisher> crudRepository)
+        private readonly ICRUDRepository<Book> _crudRepository;
+        public BookController(ICRUDRepository<Book> crudRepository)
         {
             _crudRepository = crudRepository;
         }
 
         [HttpGet]
         [Route("list")]
-        public async Task<ActionResult<Responce<Publisher>>> GetPublishers(int page = 1)
+        public async Task<ActionResult<Responce<Book>>> GetBooks(int page = 1)
         {
             return Ok(await _crudRepository.GetEntitiesAsync(page));
         }
 
         [HttpGet]
         [Route("list/{id}")]
-        public async Task<ActionResult<Publisher>> GetPublisher(int id)
+        public async Task<ActionResult<Book>> GetBook(int id)
         {
             return Ok(await _crudRepository.GetEntityByIdAsync(id));
         }
 
         [HttpPost]
-        public async Task<ActionResult<Publisher>> AddPublisher(Publisher publisher)
+        public async Task<ActionResult<Book>> AddBook(Book book)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(Json(ModelState));
             }
-            if (await _crudRepository.AddEntityAsync(publisher))
+            if (await _crudRepository.AddEntityAsync(book))
             {
-                return Ok(publisher);
+                return Ok(book);
             }
             return BadRequest(_crudRepository.Message);
         }
 
         [HttpPut]
-        public async Task<ActionResult<Publisher>> UpdatePublisher(Publisher publisher)
+        public async Task<ActionResult<Book>> UpdateBook(Book book)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(Json(ModelState));
             }
-            if (await _crudRepository.UpdateEntityAsync(publisher))
+            if (await _crudRepository.UpdateEntityAsync(book))
             {
-                return Ok(publisher);
+                return Ok(book);
             }
             return BadRequest(_crudRepository.Message);
         }
 
         [HttpDelete]
         [Route("{id}")]
-        public async Task<ActionResult> DeletePublisher(int id)
+        public async Task<ActionResult> DeleteBook(int id)
         {
             if (id <= 0)
             {
@@ -67,7 +67,7 @@ namespace BookShop.Controllers
             }
             if (await _crudRepository.DeleteEntityAsync(id))
             {
-                return Ok("publisher deleted successfully");
+                return Ok("book deleted successfully");
             }
             return BadRequest(_crudRepository.Message);
         }

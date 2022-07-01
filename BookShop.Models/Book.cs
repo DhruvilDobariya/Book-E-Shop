@@ -1,20 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BookShop.Models
 {
     public class Book
     {
-        //public Book()
-        //{
-        //    OrderDtls = new HashSet<OrderDtl>();
-        //    Carts = new HashSet<Cart>();
-        //}
+        public Book()
+        {
+            //OrderDtls = new HashSet<OrderDtl>();
+            Carts = new HashSet<Cart>();
+        }
 
         [Key]
         public int Id { get; set; }
@@ -27,6 +22,8 @@ namespace BookShop.Models
         [DataType(DataType.Currency)]
         public decimal Price { get; set; }
         public string Description { get; set; } = null!;
+
+        [DataType(DataType.ImageUrl)]
         public string Base64image { get; set; } = null!;
 
         [Required(ErrorMessage = "Please Category")]
@@ -43,6 +40,6 @@ namespace BookShop.Models
         public virtual Category? Category { get; set; }
         public virtual Publisher? Publisher { get; set; }
         //public virtual ICollection<OrderDtl> OrderDtls { get; set; }
-        //public virtual ICollection<Cart> Carts { get; set; }
+        public virtual ICollection<Cart> Carts { get; set; }
     }
 }

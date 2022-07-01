@@ -17,7 +17,7 @@ namespace BookShop.Controllers
 
         [HttpGet]
         [Route("list")]
-        public async Task<ActionResult<Responce<Role>>> GetRoles(int page)
+        public async Task<ActionResult<Responce<Role>>> GetRoles(int page = 1)
         {
             return Ok(await _crudRepository.GetEntitiesAsync(page));
         }

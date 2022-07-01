@@ -19,7 +19,7 @@ namespace BookShop.Controllers
 
         [HttpGet]
         [Route("list")]
-        public ActionResult<Responce<User>> GetUsers(int page)
+        public ActionResult<Responce<User>> GetUsers(int page = 1)
         {
             Responce<User> responce = _userRepository.GetUsersWithJoin(page);
             if (responce == null)

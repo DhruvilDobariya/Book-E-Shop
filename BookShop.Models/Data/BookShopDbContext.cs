@@ -11,8 +11,9 @@ namespace BookShop.Models.Data
 
         public virtual DbSet<Role> Role { get; set; } = null!;
         public virtual DbSet<User> User { get; set; } = null!;
-        public  virtual DbSet<Category> Category { get; set; } = null!;
+        public virtual DbSet<Category> Category { get; set; } = null!;
         public virtual DbSet<Publisher> Publisher { get; set; } = null!;
         public virtual DbSet<Book> Book { get; set; } = null!;
+        public virtual DbSet<Cart> Cart { get; set; } = null!;
     }
 }

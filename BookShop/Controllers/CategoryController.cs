@@ -17,7 +17,7 @@ namespace BookShop.Controllers
 
         [HttpGet]
         [Route("list")]
-        public async Task<ActionResult<Responce<Category>>> GetCategories(int page)
+        public async Task<ActionResult<Responce<Category>>> GetCategories(int page = 1)
         {
             return Ok(await _crudRepository.GetEntitiesAsync(page));
         }

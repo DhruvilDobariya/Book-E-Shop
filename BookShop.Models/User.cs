@@ -7,11 +7,11 @@ namespace BookShop.Models
     [Index(nameof(Email), IsUnique = true)]
     public class User
     {
-        //public User()
-        //{
-        //    Carts = new HashSet<Cart>();
-        //    Ordermsts = new HashSet<Ordermst>();
-        //}
+        public User()
+        {
+            Carts = new HashSet<Cart>();
+            //Ordermsts = new HashSet<Ordermst>();
+        }
 
         [Key]
         public int Id { get; set; }
@@ -38,7 +38,7 @@ namespace BookShop.Models
         public int Roleid { get; set; }
 
         public virtual Role? Role { get; set; }
-        //public virtual ICollection<Cart> Carts { get; set; }
+        public virtual ICollection<Cart> Carts { get; set; }
         //public virtual ICollection<Ordermst> Ordermsts { get; set; }
     }
 }
