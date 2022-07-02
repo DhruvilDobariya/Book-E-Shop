@@ -10,16 +10,18 @@ namespace BookShop.Controllers
     public class CartController : Controller
     {
         private readonly ICRUDRepository<Cart> _crudRepository;
-        public CartController(ICRUDRepository<Cart> crudRepository)
+        private readonly ICartRepository _cartRepository;
+        public CartController(ICRUDRepository<Cart> crudRepository, ICartRepository cartRepository)
         {
             _crudRepository = crudRepository;
+            _cartRepository = cartRepository;
         }
 
         [HttpGet]
         [Route("list")]
         public async Task<ActionResult<Responce<Cart>>> GetCarts(int page = 1)
         {
-            return Ok(await _crudRepository.GetEntitiesAsync(page));
+            return Ok(await _cartRepository.GetCartsWithJoinAsync(page));
         }
 
         [HttpGet]

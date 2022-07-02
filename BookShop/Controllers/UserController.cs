@@ -1,10 +1,12 @@
 ﻿using BookShop.Models;
 using BookShop.Models.ViewModels;
 using BookShop.Repositories;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BookShop.Controllers
 {
+    [EnableCors("AllowOrigin")]
     [ApiController]
     [Route("api/[controller]")]
     public class UserController : Controller
