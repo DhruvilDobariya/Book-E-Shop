@@ -1,0 +1,66 @@
+<section class="create-account-page-wrapper">
+    <div class="container">
+        <div class="breadcrumb-wrapper">
+            <ol>
+                <li>
+                    <a href="#" title="Home">Home</a>
+                </li>
+                <li>
+                    <p>Log in Account</p>
+                </li>
+            </ol>
+        </div>
+        <h1>Login an Account</h1>
+        <div class="create-account-row">
+            <form #Login="ngForm" (ngSubmit)="validateUser()">
+                <div class="form-block">
+                    <div class="login-information">
+                        <div class="personal-information-header">
+                            <h2>Login Information</h2>
+                            <p>
+                                Please enter the following information to log in your
+                                account.
+                            </p>
+                        </div>
+                        <div class="form-row-wrapper">
+                            <div class="form-col">
+                                <div class="form-group">
+                                    <label for="email-address" id="email-address-label">Email Adress *</label>
+                                    <input type="text" class="form-control" name="Email"
+                                      [(ngModel)]="user.Email" #Email="ngModel" required id="email-address" pattern="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"
+                                      [class.is-invalid]="Email.invalid && Email.touched" 
+                                      [class.is-valid]="Email.valid && Email.touched"
+                                      />
+                                      
+                                    <div *ngIf="Email.invalid && Email.touched" class="invalid-feedback">
+                                        <span *ngIf=" Email.errors['required']">Email is required</span>
+                                        <span *ngIf="Email.errors['pattern']">Email format is in valid</span>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                            <div class="form-col">
+                                <div class="form-group">
+                                    <label for="password" id="password-label">Password *</label>
+                                    <input type="password" class="form-control" required name="Password" [(ngModel)]="user.Password" #Password="ngModel" id="password" 
+                                    [class.is-invalid]="Password.invalid && Password.touched" 
+                                    [class.is-valid]="Password.valid && Password.touched"
+                                    />
+
+                                    <div *ngIf="Password.invalid && Password.touched" class="invalid-feedback">
+                                        <span *ngIf=" Password.errors['required']">Email is required</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="btn-wrapper">
+                            <button [disabled]="Login.invalid" class="btn blue-btn" type="submit">
+                                Log in
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>

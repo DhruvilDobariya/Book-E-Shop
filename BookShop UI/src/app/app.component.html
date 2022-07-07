@@ -1,0 +1,124 @@
+<header class="site-header" id="header">
+    <div class="site-header-wrapper">
+        <div class="container">
+            <div class="header-wrapper">
+                <div class="logo-wrapper">
+                    <a class="site-logo" title="logo" routerLink="#">
+                        <!-- <img src="../assets/images/Logo.png" alt="Microsoft" class="img-fluid" style="width: 140px;"/> -->
+                        <img src="../assets/images/site-logo.svg" alt="Tatvasoft"/>
+                    </a>
+                </div>
+                <div class="nav-wrapper">
+                    <div class="top-right-bar">
+                        <ul class="top-nav-bar">
+                            <li>
+                                <a title="Login" routerLink="/Signin">Login</a>
+                            </li>
+                            <li>
+                                <a title="Register" routerLink="/Signup">Register</a>
+                            </li>
+                        </ul>
+                        <ul class="cart-country-wrap">
+                            <li class="cart-link">
+                                <a title="Cart" href="#">
+                                    <img src="../assets/images/cart.svg" alt="cart" />
+                                    <span>0</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="header-search-wrapper">
+        <div class="container">
+            <div class="header-search-outer">
+                <div class="header-search-inner">
+                    <div class="text-wrapper">
+                        <div class="form-group-wrapper">
+                            <div class="form-group">
+                                <label style="display: none" for="search-text">Search</label>
+                                <input id="search-text" name="text" placeholder="What are you looking for..." type="text" class="form-control" value=""/>
+                            </div>
+                        </div>
+                        <div class="product-listing">
+                            <p class="no-product">No product found</p>
+                            <p class="loading">Loading....</p>
+                            <ul class="related-product-list">
+                                <li>
+                                    <div class="inner-block">
+                                        <div class="left-col">
+                                            <span class="title">Title 1</span>
+                                            <span class="category">Category</span>
+                                            <p>Description</p>
+                                        </div>
+                                        <div class="right-col">
+                                            <span class="price">1000</span>
+                                            <a href="#">Add to cart</a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="inner-block">
+                                        <div class="left-col">
+                                            <span class="title">Title 1</span>
+                                            <span class="category">Category</span>
+                                            <p>Description</p>
+                                        </div>
+                                        <div class="right-col">
+                                            <span class="price">1000</span>
+                                            <a href="#">Add to cart</a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="inner-block">
+                                        <div class="left-col">
+                                            <span class="title">Title 1</span>
+                                            <span class="category">Category</span>
+                                            <p>Description</p>
+                                        </div>
+                                        <div class="right-col">
+                                            <span class="price">1000</span>
+                                            <a href="#">Add to cart</a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="inner-block">
+                                        <div class="left-col">
+                                            <span class="title">Title 1</span>
+                                            <span class="category">Category</span>
+                                            <p>Description</p>
+                                        </div>
+                                        <div class="right-col">
+                                            <span class="price">1000</span>
+                                            <a href="#">Add to cart</a>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <button class="btn green-btn" type="submit">
+                        <em><img src="../assets/images/search.svg" alt="search" /></em>Search
+                    </button>
+                    <button class="btn blue-btn" type="submit">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<main>
+    <router-outlet></router-outlet>
+</main>
+<footer class="site-footer">
+    <div class="footer-wrapper">
+        <div class="container">
+            <p class="copyright-text">
+                © 2022 Microsoft.com. All rights reserved.
+            </p>
+        </div>
+    </div>
+</footer>

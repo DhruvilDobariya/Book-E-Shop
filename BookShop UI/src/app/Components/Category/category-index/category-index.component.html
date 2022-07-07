@@ -1,0 +1,75 @@
+<section class="product-page-wrapper">
+    <div class="container">
+        <h1>Book Category</h1>
+        <div class="btn-wrapper">
+            <div class="form-group">
+                <input type="text" value="" class="form-control" id="search" placeholder="Search..." (keyup)="search($event)"/>
+            </div>
+            <a class="btn blue-btn" routerLink="../Category/Add">Add product</a>
+        </div>
+        <div class="table-responsive">
+            <table>
+                <thead>
+                    <tr>
+                        <th scope="col">Id</th>
+                        <th scope="col">Category Name</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let category of categories">
+                        <th scope="row">{{category.id}}</th>
+                        <td>{{category.name}}</td>
+                        <td>
+                            <ul class="btn-list">
+                                <li>
+                                    <button (click)="Edit(category.id)" class="btn green-border-btn" title="Edit">
+                                        <i class="fa-solid fa-pen-to-square"></i>
+                                    </button>
+                                </li>
+                                <li>
+                                    <button (click)="Delete(category.id)" class="btn blue-border-btn" title="Delete">
+                                        <i class="fa-solid fa-trash-can"></i>
+                                    </button>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="table-pagination">
+            <p>Rows per page:</p>
+            <label style="display:none" for="selection">Selection</label>
+            <select id="selection" (change)="pageSize($event)">
+                <option value="5">5</option>
+                <option value="25">25</option>
+                <option value="50">50</option>
+                <option value="100">100</option>
+            </select>
+            <p class="pagination-wcaption">
+                <span>1</span>-<span>{{page.Pages}}</span> 
+                of <span>{{page.CurruntPage}}</span>
+            </p>
+            <ul class="next-prev-list">
+                <li [class.disable]="page.left">
+                    <a (click)="changePage(-1)">
+                        Previous
+                        <svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M15.41 16.09l-4.58-4.59 4.58-4.59L14 5.5l-6 6 6 6z">
+                            </path>
+                        </svg>
+                    </a>
+                </li>
+                <li [class.disable]="page.right">
+                    <a (click)="changePage(+1)">
+                        Next
+                        <svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"></path>
+                        </svg>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>

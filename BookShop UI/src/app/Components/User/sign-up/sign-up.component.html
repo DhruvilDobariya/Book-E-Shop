@@ -1,0 +1,130 @@
+<section class="create-account-page-wrapper">
+  <div class="container">
+    <div class="breadcrumb-wrapper">
+      <ol>
+        <li>
+          <a href="#" title="Home">Home</a>
+        </li>
+        <li>
+          <p>Create an Account</p>
+        </li>
+      </ol>
+    </div>
+    <h1>Login or Create an Account</h1>
+    <div class="create-account-row">
+      <form #Registration="ngForm" (ngSubmit)="submit()">
+        <div class="form-block">
+          <div class="personal-information">
+            <div class="personal-information-header">
+              <h2>Personal Information</h2>
+              <p>
+                Please enter the following information to create your
+                account.
+              </p>
+            </div>
+            <div class="form-row-wrapper">
+              <div class="form-col">
+                <div class="form-group">
+                  <label for="first-name" id="first-name-label">First Name *</label>
+                  <input
+                    type="text" class="form-control" id="first-name" 
+                    name="FirstName" [(ngModel)]="user.Firstname" #FirstName="ngModel"
+                    required="true" minlength="2" maxlength="250"
+                    [ngClass]="FirstName.touched ? (FirstName.valid  ? 'is-valid' : 'is-invalid') : ''"
+                  />
+                  <div *ngIf="FirstName.invalid && FirstName.touched" class="invalid-feedback">
+                    <span *ngIf="FirstName.errors['required']">First Name is required</span>
+                    <span *ngIf="FirstName.errors['minlength']">First Name must contain at least 2 characters</span>
+                    <span *ngIf="FirstName.errors['maxlength']">First Name must contain less the 250 characters</span>
+                  </div>
+                </div>
+              </div>
+              <div class="form-col">
+                <div class="form-group">
+                  <label for="last-name" id="last-name-label">Last Name *</label>
+                  <input
+                    type="text" class="form-control" id="last-name"
+                    name="LastName" [(ngModel)]="user.Lastname" #LastName="ngModel"
+                    required="true" minlength="2" maxlength="250"
+                    [ngClass]="LastName.touched ? (LastName.valid ? 'is-valid' : 'is-invalid') : ''"
+                  />
+                  <div *ngIf="LastName.invalid && LastName.touched" class="invalid-feedback">
+                    <span *ngIf="LastName.errors['required']">Last Name is required</span>
+                    <span *ngIf="LastName.errors['minlength']">Last Name must contain at least 2 characters</span>
+                    <span *ngIf="LastName.errors['maxlength']">Last Name must contain less the 250 characters</span>
+                  </div>
+                </div>
+              </div>
+              <div class="form-col">
+                <div class="form-group">
+                  <label for="email-address" id="email-address-label">Email Adress *</label>
+                  <input
+                    type="email" class="form-control" id="email-address"
+                    name="Email" [(ngModel)]="user.Email" #Email="ngModel"
+                    required="true" pattern="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"
+                    [ngClass]="Email.touched ? (Email.valid ? 'is-valid' : 'is-invalid') : ''"
+                  />
+                  <div *ngIf="Email.invalid && Email.touched" class="invalid-feedback">
+                    <span *ngIf="Email.errors['required']">Email is required</span>
+                    <span *ngIf="Email.errors['pattern']">Email format is in valid</span>
+                  </div>
+                </div>
+              </div>
+              <div class="form-col">
+                <div class="form-group">
+                  <label for="role" id="email-address-label">Role *</label>
+                  <select name="Role" id="role" class="form-select" [(ngModel)]="user.Roleid">
+                    <option value="1" >Admin</option>
+                    <option value="2">Customer</option>
+                    <option value="3">Supplier</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="login-information">
+            <div class="personal-information-header">
+              <h2>Login Information</h2>
+            </div>
+            <div class="form-row-wrapper">
+              <div class="form-col">
+                <div class="form-group">
+                  <label for="password" id="password-label">Password *</label>
+                  <input type="password" class="form-control" id="password"
+                    name="Password" [(ngModel)]="user.Password" #Password="ngModel"
+                    required pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"
+                    [ngClass]="Password.touched ? (Password.valid) ? 'is-valid' : 'is-invalid' : ''"
+                  />
+                  <div *ngIf="Password.invalid && Password.touched" class="invalid-feedback">
+                    <span *ngIf="Password.errors['required']">Password is required</span>
+                    <span *ngIf="Password.errors['pattern']">Password must be minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character</span>
+                  </div>
+                </div>
+              </div>
+              <div class="form-col">
+                <div class="form-group">
+                  <label for="confirm-password" id="confirm-password-label">Confirm Password *</label>
+                  <input type="password" class="form-control" id="confirm-password"
+                    name="ConfirmPassword" [(ngModel)]="confirmPassword" #ConfirmPassword="ngModel"
+                    required
+                    [ngClass]="ConfirmPassword.touched ? (ConfirmPassword.valid && (user.Password == confirmPassword)) ? 'is-valid' : 'is-invalid' : ''"
+                  />
+                  
+                  <div *ngIf="ConfirmPassword.invalid && ConfirmPassword.touched" class="invalid-feedback">
+                    <span *ngIf="ConfirmPassword.errors['required']">Confirm Password is required</span>
+                  </div>
+                  <span *ngIf="ConfirmPassword.valid && (user.Password != confirmPassword) && ConfirmPassword.touched" class="invalid-feedback">Password and ConfirmPassword not match</span>
+                </div>
+              </div>
+            </div>
+            <div class="btn-wrapper">
+              <button class="btn blue-btn" type="submit" [disabled]="(user.Password != confirmPassword) || Registration.invalid">
+                Register
+              </button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
